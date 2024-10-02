@@ -1,15 +1,19 @@
-import uploadPhoto from './5-photo-reject'; // Adjust the path if necessary
-import createUser from './4-user-promise'; // Adjust the path if necessary
+import { uploadPhoto, createUser } from './utils';
 
 export default async function asyncUploadUser() {
+  let responseObject = {}; // Renamed variable for clarity
+
   try {
-    const photo = await uploadPhoto('photo-profile-1'); // Call uploadPhoto
-    const user = await createUser('Guillaume', 'Salva'); // Call createUser
-    return {
-      photo, // Return the result of uploadPhoto
-      user, // Return the result of createUser
-    };
+    // Await responses and assign to separate variables
+    const photoResponse = await uploadPhoto();
+    const userResponse = await createUser();
+
+    // Populate the responseObject with the results
+    responseObject = { photo: photoResponse, user: userResponse };
   } catch (error) {
-    return { photo: null, user: null }; // Return empty object on error
+    // If an error occurs, assign null values to photo and user
+    responseObject = { photo: null, user: null };
   }
+
+  return responseObject; // Return the final response object
 }
