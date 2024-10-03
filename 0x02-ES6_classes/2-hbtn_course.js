@@ -10,7 +10,7 @@ export default class HolbertonCourse {
       throw new TypeError('Students must be an array of strings');
     }
     this._name = name;
-    this._lenght = length;
+    this._length = length;
     this._students = students;
   }
 
@@ -40,7 +40,7 @@ export default class HolbertonCourse {
   }
 
   get length() {
-    return this._lenght;
+    return this._length;
   }
 
   get students() {
