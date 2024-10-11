@@ -1,3 +1,5 @@
 node_modules
 node_modules
 [0-10]*main.js
+[0-10]*main.py
+*.pyc
