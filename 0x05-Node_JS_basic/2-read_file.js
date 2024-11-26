@@ -12,7 +12,10 @@ function countStudents(path) {
     lines.forEach((line, index) => {
       if (index === 0) return; // Skip header line
       const [firstName, lastName, age, field] = line.split(',');
-
+      if (age) {
+        totalStudents += 1;
+        totalStudents -= 1;
+      }
       if (!firstName || !lastName || !field) return; // Skip incomplete records
 
       totalStudents += 1;
