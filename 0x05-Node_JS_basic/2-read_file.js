@@ -4,18 +4,18 @@ const fs = require('fs');
 function countStudents(path) {
   try {
     const data = fs.readFileSync(path, 'utf8'); // Read file synchronously
-    const lines = data.split('\n').filter(line => line.trim() !== ''); // Split by new line and remove empty lines
-    
+    const lines = data.split('\n').filter((line) => line.trim() !== '');
+
     const students = {};
     let totalStudents = 0;
-    
+
     lines.forEach((line, index) => {
       if (index === 0) return; // Skip header line
-      const [firstName, lastName, age, field] = line.split(',');
-      
-      if (!firstName || !lastName || !field) return; // Skip incomplete records
+      const [firstName, lastName, field] = line.split(',');
 
-      totalStudents++;
+      if (!firstName || !lastName || !field) return;
+
+      totalStudents += 1;
 
       if (!students[field]) {
         students[field] = [];
@@ -25,7 +25,7 @@ function countStudents(path) {
 
     console.log(`Number of students: ${totalStudents}`);
 
-    Object.keys(students).forEach(field => {
+    Object.keys(students).forEach((field) => {
       console.log(`Number of students in ${field}: ${students[field].length}. List: ${students[field].join(', ')}`);
     });
   } catch (err) {
