@@ -15,7 +15,7 @@ function countStudents(path) {
 
       if (!firstName || !lastName || !field) return; // Skip incomplete records
 
-      totalStudents++;
+      totalStudents += 1;
 
       if (!students[field]) {
         students[field] = [];
