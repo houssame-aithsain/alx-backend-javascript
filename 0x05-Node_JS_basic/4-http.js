@@ -1,13 +1,27 @@
-// 4-http.js
 const http = require('http');
 
-const app = http.createServer((req, res) => {
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end('Hello Holberton School!\n');
+const PORT = 1245;
+const HOST = 'localhost';
+
+// Create the server
+const app = http.createServer();
+
+// Handle incoming requests
+app.on('request', (_, res) => {
+  const responseText = 'Hello Holberton School!';
+
+  // Set headers
+  res.setHeader('Content-Type', 'text/plain');
+  res.setHeader('Content-Length', responseText.length);
+  res.statusCode = 200;
+
+  // Write the response
+  res.write(Buffer.from(responseText));
 });
 
-app.listen(1245, () => {
-  console.log('Server listening on port 1245');
+// Start the server and listen on the specified port and host
+app.listen(PORT, HOST, () => {
+  process.stdout.write(`Server listening at -> http://${HOST}:${PORT}\n`);
 });
 
 module.exports = app;
