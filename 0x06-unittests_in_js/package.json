@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "test": "npx mocha"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "mocha": "^10.8.2"
+  }
+}
