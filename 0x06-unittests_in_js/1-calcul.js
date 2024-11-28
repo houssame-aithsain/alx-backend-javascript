@@ -14,7 +14,6 @@ function calculateNumber(type, a, b) {
     } else {
       throw new Error('Invalid type');
     }
-  }
+}
   
-  module.exports = calculateNumber;
-  
+module.exports = calculateNumber;
