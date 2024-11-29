@@ -11,13 +11,13 @@ import fs from 'fs';
 const readDatabase = (dataPath) => new Promise((resolve, reject) => {
   // Validate if dataPath is provided
   if (!dataPath) {
-    return reject(new Error('Cannot load the database: Invalid path'));
+    return reject(new Error('Cannot load the database'));
   }
 
   // Read the CSV file
   fs.readFile(dataPath, (err, data) => {
     if (err) {
-      return reject(new Error('Cannot load the database: File read error'));
+      return reject(new Error('Cannot load the database'));
     }
     
     // If data is available, process it
